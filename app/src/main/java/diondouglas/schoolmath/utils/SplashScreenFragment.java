@@ -36,7 +36,23 @@ public class SplashScreenFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.replace(R.id.mainFragment,new MainActivityFragment(), "MainActivityFragment").commit();
+                ft.replace(R.id.mainFragment,new MainActivityFragment(), "MainActivityFragment").addToBackStack(null).commit();
+            }
+        });
+        Button settingsButton = (Button)view.findViewById(R.id.SplashScreenSettingsButton);
+        settingsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.replace(R.id.mainFragment, new genderSelect(), "Gender Screen").addToBackStack(null).commit();
+            }
+        });
+        Button rewardsButton = (Button)view.findViewById(R.id.RewardsButton);
+        rewardsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.replace(R.id.mainFragment, new rewardScreen(), "Rewards Screen").addToBackStack(null).commit();
             }
         });
 

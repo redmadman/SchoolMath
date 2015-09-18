@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="fill_parent"
+    android:layout_width="fill_parent"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="20dp"
+        android:text="Your Rewards!"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_weight="1"/>
+
+    <GridView
+        android:id="@+id/gridView1"
+        android:numColumns="auto_fit"
+        android:gravity="center"
+        android:columnWidth="150dp"
+        android:stretchMode="columnWidth"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="10">
+</GridView>
+</LinearLayout>

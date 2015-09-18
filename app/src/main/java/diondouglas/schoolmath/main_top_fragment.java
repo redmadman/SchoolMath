@@ -1,12 +1,15 @@
 package diondouglas.schoolmath;
 
 import android.app.Activity;
+import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +17,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.util.Random;
+
+import diondouglas.schoolmath.utils.rewardScreen;
 
 
 public class main_top_fragment extends Fragment{
@@ -23,6 +28,7 @@ public class main_top_fragment extends Fragment{
     private static Random myRandom;
     private static Activity activity;
 
+    private FragmentActivity myContext;
 
     public main_top_fragment() {
         // Required empty public constructor
@@ -42,9 +48,11 @@ public class main_top_fragment extends Fragment{
         myView = v;
         activity = this.getActivity();
         PopulateFields();
+        startProgressBar();
 
         return v;
     }
+
 
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
@@ -52,23 +60,6 @@ public class main_top_fragment extends Fragment{
         }
     }
 
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
-
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p/>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
     public interface mainTopListener {
         // TODO: Update argument type and name
         void onMainTopInteraction(Uri uri);
@@ -140,7 +131,14 @@ public class main_top_fragment extends Fragment{
         textView = (TextView)myView.findViewById(R.id.BottomNumberTextField);
         bottomNumber = Integer.parseInt(textView.getText().toString());
         textView = (TextView)myView.findViewById(R.id.AnswerTextField);
-        guess = Integer.parseInt(textView.getText().toString());
+
+        if(!(textView.getText().toString().equals(""))) {
+            guess = Integer.parseInt(textView.getText().toString());
+        }else {
+            textView.setText("0");
+            return; //send user back if field is empty
+        }
+
         switch (OPERATOR){
             case "+":
                 answer = topNumber+bottomNumber;
@@ -150,15 +148,9 @@ public class main_top_fragment extends Fragment{
         }
 
         if(answer==guess){
-            //TODO Correct Answer Logic
             textView.setText("");
-            PopulateFields();
-            answerLocked = false;
-            MediaPlayer mp = MediaPlayer.create(activity.getApplicationContext(), R.raw.tada);
-            mp.start();
-            updateProgressBar();
+            correctAnswer();
 
-            //If correct
         }else {
             //TODO Wrong Answer Logic
             //if wrong
@@ -169,6 +161,20 @@ public class main_top_fragment extends Fragment{
 
     }
 
+    private static void correctAnswer(){
+        //TODO Correct Answer Logic
+        MediaPlayer mp = MediaPlayer.create(activity.getApplicationContext(), R.raw.tada);
+        mp.start();
+        updateProgressBar();
+    }
+
+    private static void startProgressBar(){
+        //TODO Make level/grade specific eventually
+        ProgressBar progressBar = (ProgressBar)myView.findViewById(R.id.topPanelProgressBar);
+        SharedPreferences mPrefs = activity.getSharedPreferences("schoolMathPrefs", 0);
+        progressBar.setMax(mPrefs.getInt("rewards progress", 2));
+    }
+
     private static void updateProgressBar(){
         ProgressBar progressBar = (ProgressBar) myView.findViewById(R.id.topPanelProgressBar);
         int i = progressBar.getProgress();
@@ -176,8 +182,13 @@ public class main_top_fragment extends Fragment{
             i++;
             progressBar.setProgress(i);
             if (i==progressBar.getMax()){
-                progressBar.setMax(progressBar.getMax()+progressBar.getMax());
+                progressBar.setMax(progressBar.getMax() + progressBar.getMax());
                 progressBar.setProgress(0);
+                SharedPreferences mPrefs = activity.getSharedPreferences("schoolMathPrefs", 0);
+                SharedPreferences.Editor editor = mPrefs.edit();
+                editor.putInt("rewards progress", i).apply();
+                FragmentTransaction ft = activity.getFragmentManager().beginTransaction();
+                ft.replace(R.id.mainFragment, new rewardScreen(), "Rewards Screen").addToBackStack(null).commit();
             }
         }
 

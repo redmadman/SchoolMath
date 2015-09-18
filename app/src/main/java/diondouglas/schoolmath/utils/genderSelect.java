@@ -31,7 +31,7 @@ public class genderSelect extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        final View view =  inflater.inflate(R.layout.fragment_gender_select, container, false);
+        View view =  inflater.inflate(R.layout.fragment_gender_select, container, false);
         ImageButton boy = (ImageButton)view.findViewById(R.id.imageButtonBoy);
         boy.setOnClickListener(new View.OnClickListener()
         {
@@ -73,7 +73,7 @@ public class genderSelect extends Fragment {
 
         //TOFO MORE preferences page if/when we add more
         FragmentTransaction ft = getFragmentManager().beginTransaction();
-        ft.replace(R.id.mainFragment,new MainActivityFragment(), "MainActivityFragment").commit();
+        ft.replace(R.id.mainFragment,new SplashScreenFragment(), "Splash Screen").commit();
 
     }
 
