@@ -99,7 +99,8 @@ public class keyPad extends Fragment {
     public static void KeyPadButtonPress(View view){
         Button b = (Button)view;
         String str = b.getText().toString();
-        // TODO THE MathUtils.updateAnswer(str);
+        // TODO Tell the Top Fragment to update the answer
+
     }
 
 

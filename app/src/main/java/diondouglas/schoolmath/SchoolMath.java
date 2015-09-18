@@ -8,12 +8,12 @@ import android.content.SharedPreferences;
 
 public class SchoolMath extends Application {
     private static Context context;
+    private static SharedPreferences mPrefs;
 
     public static SharedPreferences getmPrefs() {
         return mPrefs;
     }
 
-    private static SharedPreferences mPrefs;
 
     private Activity myCurrentActivity = null;
 

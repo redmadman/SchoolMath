@@ -1,16 +1,20 @@
 package diondouglas.schoolmath;
 
 import android.app.Activity;
-import android.content.Context;
-import android.net.Uri;
+import android.app.FragmentTransaction;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import diondouglas.schoolmath.keyPad;
-import diondouglas.schoolmath.main_top_fragment;
+import android.widget.Button;
+
+import diondouglas.schoolmath.utils.SplashScreenFragment;
+import diondouglas.schoolmath.utils.genderSelect;
 
 public class MainActivity extends Activity  {
+    private static boolean firstRun;
+    private static SharedPreferences mySharedPreferences;
 
     protected SchoolMath mySchoolMath;
     @Override
@@ -19,6 +23,28 @@ public class MainActivity extends Activity  {
         mySchoolMath = (SchoolMath)this.getApplicationContext();
         hideSystemUI(this);
         setContentView(R.layout.activity_main);
+        mySharedPreferences = this.getSharedPreferences("schoolMathPrefs",0);
+        if(getFirstRun()){
+            openSettings();
+        }else {
+            openSplashScreen();
+        }
+
+    }
+
+    private boolean getFirstRun(){
+        return mySharedPreferences.getBoolean("firstRun", true);
+    }
+
+    public void openSettings(){
+        SharedPreferences.Editor editor = mySharedPreferences.edit();
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.replace(R.id.mainFragment,new genderSelect(), "GenderSelect").commit();
+    }
+    public void openSplashScreen(){
+        SharedPreferences.Editor editor = mySharedPreferences.edit();
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.replace(R.id.mainFragment,new SplashScreenFragment(), "Splash Screen").commit();
     }
 
 
@@ -56,13 +82,10 @@ public class MainActivity extends Activity  {
                         | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
     }
 
-
-
-
-
-
-    public  void click_1(View view){
-        keyPad.KeyPadButtonPress(view);
+    public  void KeyPadClick(View view){
+        Button b = (Button)view;
+        String str = b.getText().toString();
+        main_top_fragment.UpdateAnswer(str);
     }
 
 
@@ -70,6 +93,7 @@ public class MainActivity extends Activity  {
 
 
 
+    //Activity level stuff
     protected void onResume() {
         super.onResume();
         mySchoolMath.setMyCurrentActivity(this);
@@ -82,11 +106,16 @@ public class MainActivity extends Activity  {
         clearReferences();
         super.onDestroy();
     }
-
     private void clearReferences(){
         Activity currActivity = mySchoolMath.getMyCurrentActivity();
         if (currActivity != null && currActivity.equals(this))
             mySchoolMath.setMyCurrentActivity(null);
+    }
+
+    //TESTING PURPOSES
+    public void FRAGMENT_TEST_CLICK(View view){
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.replace(R.id.main_top_fragment,new keyPad(), "KeyPad2").commit();
     }
 
 }

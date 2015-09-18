@@ -28,10 +28,13 @@ public class MainActivityFragment extends Fragment implements keyPadListener, ma
 
 
     public void onKeyPadInteraction(Uri uri){
+
     }
 
     public void onMainTopInteraction(Uri uri){
     }
+
+
 
 
     // TODO: Update argument type and name
