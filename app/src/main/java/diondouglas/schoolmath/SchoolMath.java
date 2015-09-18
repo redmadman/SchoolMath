@@ -1,12 +1,11 @@
 package diondouglas.schoolmath;
 
+import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-/**
- * Created by Dion on 9/14/2015.
- */
+
 public class SchoolMath extends Application {
     private static Context context;
 
@@ -16,14 +15,23 @@ public class SchoolMath extends Application {
 
     private static SharedPreferences mPrefs;
 
-    public void onCreate(){
+    private Activity myCurrentActivity = null;
+
+    public Activity getMyCurrentActivity() {
+        return myCurrentActivity;
+    }
+
+    public void setMyCurrentActivity(Activity myCurrentActivity) {
+        this.myCurrentActivity = myCurrentActivity;
+    }
+
+    public void onCreate() {
         super.onCreate();
         SchoolMath.context = getApplicationContext();
-        context.getSharedPreferences("schoolMathPrefs",0);
+        context.getSharedPreferences("schoolMathPrefs", 0);
     }
-    public static Context getAppContext(){
+
+    public static Context getAppContext() {
         return SchoolMath.context;
     }
-
 }
-

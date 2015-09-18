@@ -2,17 +2,21 @@ package diondouglas.schoolmath;
 
 import android.app.Activity;
 import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import diondouglas.schoolmath.keyPad;
+import diondouglas.schoolmath.main_top_fragment;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity  {
 
+    protected SchoolMath mySchoolMath;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mySchoolMath = (SchoolMath)this.getApplicationContext();
         hideSystemUI(this);
         setContentView(R.layout.activity_main);
     }
@@ -50,6 +54,39 @@ public class MainActivity extends AppCompatActivity {
                         | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION // hide nav bar
                         | View.SYSTEM_UI_FLAG_FULLSCREEN // hide status bar
                         | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+    }
+
+
+
+
+
+
+    public  void click_1(View view){
+        keyPad.KeyPadButtonPress(view);
+    }
+
+
+
+
+
+
+    protected void onResume() {
+        super.onResume();
+        mySchoolMath.setMyCurrentActivity(this);
+    }
+    protected void onPause() {
+        clearReferences();
+        super.onPause();
+    }
+    protected void onDestroy() {
+        clearReferences();
+        super.onDestroy();
+    }
+
+    private void clearReferences(){
+        Activity currActivity = mySchoolMath.getMyCurrentActivity();
+        if (currActivity != null && currActivity.equals(this))
+            mySchoolMath.setMyCurrentActivity(null);
     }
 
 }

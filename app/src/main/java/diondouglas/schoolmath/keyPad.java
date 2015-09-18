@@ -1,13 +1,13 @@
 package diondouglas.schoolmath;
 
 import android.app.Activity;
-import android.app.Fragment;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.app.Fragment;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -74,16 +74,6 @@ public class keyPad extends Fragment {
         }
     }
 
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        try {
-            mListener = (keyPadListener) activity;
-        } catch (ClassCastException e) {
-            throw new ClassCastException(activity.toString()
-                    + " must implement keyPadListener");
-        }
-    }
 
     @Override
     public void onDetach() {
