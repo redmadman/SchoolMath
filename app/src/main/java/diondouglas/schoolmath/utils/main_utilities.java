@@ -10,8 +10,6 @@ public class main_utilities {
 
     //Variables
     Context context;
-
-
     //constructor
     public void main_utilities(){
         Context context = SchoolMath.getAppContext();

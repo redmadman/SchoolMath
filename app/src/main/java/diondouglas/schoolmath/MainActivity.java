@@ -14,6 +14,7 @@ import java.util.Random;
 import diondouglas.schoolmath.utils.SplashScreenFragment;
 import diondouglas.schoolmath.utils.genderSelect;
 import diondouglas.schoolmath.utils.rewardScreen;
+import diondouglas.schoolmath.utils.utilities;
 
 public class MainActivity extends Activity  {
 
@@ -29,6 +30,7 @@ public class MainActivity extends Activity  {
         super.onCreate(savedInstanceState);
         mySchoolMath = (SchoolMath)this.getApplicationContext();
         hideSystemUI(this);
+        setTheme(utilities.getGenderTheme(this.getWindow().getDecorView().findViewById(android.R.id.content)));
         setContentView(R.layout.activity_main);
         mySharedPreferences = this.getSharedPreferences("schoolMathPrefs",0);
         if(getFirstRun()){

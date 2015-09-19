@@ -10,7 +10,6 @@ import android.preference.PreferenceManager;
 public class SchoolMath extends Application {
     private static Context context;
     private static SharedPreferences mPrefs;
-
     public static SharedPreferences getmPrefs() {
         return mPrefs;
     }

@@ -1,6 +1,7 @@
 package diondouglas.schoolmath.utils;
 
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -11,6 +12,7 @@ import android.widget.ImageButton;
 
 import diondouglas.schoolmath.MainActivityFragment;
 import diondouglas.schoolmath.R;
+import diondouglas.schoolmath.SchoolMath;
 
 public class genderSelect extends Fragment {
 
@@ -59,9 +61,10 @@ public class genderSelect extends Fragment {
         editor.apply();
         setRan();
         nextPref();
+
     }
     public void selectBoy(){
-        mPrefs=this.getActivity().getSharedPreferences("schoolMathPrefs",0);
+        mPrefs= SchoolMath.getmPrefs();
         SharedPreferences.Editor editor = mPrefs.edit();
         editor.putBoolean("SelectGender", false);
         editor.apply();

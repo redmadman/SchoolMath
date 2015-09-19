@@ -59,13 +59,6 @@ public class SplashScreenFragment extends Fragment {
         return view;
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onSplashScreenInteraction(uri);
-        }
-    }
-
 
     @Override
     public void onDetach() {
@@ -74,7 +67,7 @@ public class SplashScreenFragment extends Fragment {
     }
 
     public interface OnSplashScreenInteractionListener {
-        // TODO: Update argument type and name
+
         void onSplashScreenInteraction(Uri uri);
     }
 

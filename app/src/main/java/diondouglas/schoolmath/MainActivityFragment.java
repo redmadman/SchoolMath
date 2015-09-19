@@ -148,7 +148,6 @@ public class MainActivityFragment extends Fragment{
     }
 
     private static void correctAnswer(View view){
-        //TODO Correct Answer Logic
         MediaPlayer mp = MediaPlayer.create(activity.getApplicationContext(), R.raw.tada);
         mp.start();
         updateProgressBar(view);
@@ -193,8 +192,6 @@ public class MainActivityFragment extends Fragment{
         UpdateAnswer(v);
     }
 
-
-    // TODO: Update argument type and name
 
 
 

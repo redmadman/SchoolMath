@@ -3,31 +3,49 @@
     android:layout_height="fill_parent"
     android:layout_width="fill_parent"
     android:orientation="vertical">
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="20dp"
-        android:text="Your Rewards!"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:layout_weight="1"/>
-
-    <GridView
-        android:id="@+id/gridView1"
-        android:numColumns="auto_fit"
-        android:gravity="center"
-        android:columnWidth="150dp"
-        android:stretchMode="columnWidth"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_weight="10">
-
-    </GridView>
-    <Button
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="OK"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:orientation="vertical"
         android:layout_gravity="center"
-        android:id="@+id/RewardsOKButton"
-        />
-
+        android:gravity="center">
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Your Rewards!"
+            android:layout_gravity="center"
+            android:textSize="48sp"
+            android:gravity="center"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="8"
+        android:orientation="vertical">
+        <GridView
+            android:id="@+id/gridView1"
+            android:numColumns="auto_fit"
+            android:gravity="center"
+            android:columnWidth="150dp"
+            android:stretchMode="columnWidth"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            >
+        </GridView>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="OK"
+            android:layout_gravity="center"
+            android:id="@+id/RewardsOKButton"
+            />
+    </LinearLayout>
 </LinearLayout>

@@ -44,6 +44,7 @@ public class rewardScreen extends Fragment {
         mPrefs = SchoolMath.getmPrefs();
         ALL_REWARDS=getAllRewards();
         PLAYER_OWNED_REWARDS=getOwnedRewards();
+        //TODO Put in way to add reward on opening?
         addOwnedReward();
         gridView = (GridView)view.findViewById(R.id.gridView1);
         gridView.setAdapter(new RewardAdapter(getActivity(), PLAYER_OWNED_REWARDS));
