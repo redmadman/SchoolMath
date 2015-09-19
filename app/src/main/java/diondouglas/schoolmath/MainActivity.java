@@ -92,6 +92,9 @@ public class MainActivity extends Activity  {
             mySchoolMath.setMyCurrentActivity(null);
     }
 
+    public void reCreator(){
+        recreate();
+    }
 
 
 

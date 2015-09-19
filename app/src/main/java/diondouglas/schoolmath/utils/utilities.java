@@ -48,12 +48,11 @@ public class utilities {
 
     public static int getGenderTheme(View view){
         if(getGender(view)){
-            view.getContext().getApplicationContext().setTheme(R.style.boy);
             return R.style.girl;
         }else {
-            view.getContext().getApplicationContext().setTheme(R.style.boy);
             return R.style.boy;
         }
     }
+
 
 }
