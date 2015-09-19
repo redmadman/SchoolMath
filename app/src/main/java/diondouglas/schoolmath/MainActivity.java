@@ -107,6 +107,13 @@ public class MainActivity extends Activity  {
         }
     }
 
+    public void goRewardsFrag(View view){
+        utilities.OpenRewardsScreen(view);
+    }
+    public void goSplashScreen(View view){
+        utilities.OpenSplashScreen(view);
+    }
+
 
 
     //TESTING PURPOSES

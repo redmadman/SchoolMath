@@ -15,7 +15,9 @@ public class utilities {
     public static void OpenSplashScreen(View view){
         Activity activity = (Activity)view.getContext();
         FragmentTransaction ft = activity.getFragmentManager().beginTransaction();
-        ft.replace(R.id.mainFragment, new SplashScreenFragment()).addToBackStack(null).commit();
+        ft.replace(R.id.mainFragment, new SplashScreenFragment());
+        ft.addToBackStack(null);
+        ft.commit();
     }
     public static void OpenRewardsScreen(View view){
         Activity activity = (Activity)view.getContext();

@@ -88,14 +88,16 @@
                     android:text="Home"
                     android:id="@+id/topPanelhomeButton"
                     android:layout_gravity="center"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    android:onClick="goSplashScreen"/>
                 <Button
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:text="Rewards"
                     android:layout_gravity="center"
                     android:id="@+id/topPanelRewardsButton"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    android:onClick="goRewardsFrag"/>
             </LinearLayout>
 
         </LinearLayout>
