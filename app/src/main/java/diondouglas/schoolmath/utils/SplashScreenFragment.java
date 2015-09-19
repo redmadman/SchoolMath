@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import diondouglas.schoolmath.MainActivityFragment;
+import diondouglas.schoolmath.MathActivityFragment;
 import diondouglas.schoolmath.R;
 
 
@@ -36,7 +36,7 @@ public class SplashScreenFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.replace(R.id.mainFragment,new MainActivityFragment(), "MainActivityFragment").addToBackStack(null).commit();
+                ft.replace(R.id.mainFragment,new MathActivityFragment(), "MathActivityFragment").addToBackStack(null).commit();
             }
         });
         Button settingsButton = (Button)view.findViewById(R.id.SplashScreenSettingsButton);

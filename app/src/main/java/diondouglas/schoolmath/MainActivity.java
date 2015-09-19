@@ -4,16 +4,10 @@ import android.app.Activity;
 import android.app.FragmentTransaction;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-
-import java.util.Random;
 
 import diondouglas.schoolmath.utils.SplashScreenFragment;
 import diondouglas.schoolmath.utils.genderSelect;
-import diondouglas.schoolmath.utils.rewardScreen;
 import diondouglas.schoolmath.utils.utilities;
 
 public class MainActivity extends Activity  {
@@ -31,7 +25,7 @@ public class MainActivity extends Activity  {
         mySchoolMath = (SchoolMath)this.getApplicationContext();
         hideSystemUI(this);
         setTheme(utilities.getGenderTheme(this.getWindow().getDecorView().findViewById(android.R.id.content)));
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_math);
         mySharedPreferences = this.getSharedPreferences("schoolMathPrefs",0);
         if(getFirstRun()){
             openSettings();
@@ -71,7 +65,7 @@ public class MainActivity extends Activity  {
 
 
     public void KeyPadClick(View v){
-        MainActivityFragment.UpdateAnswer(v);
+        MathActivityFragment.UpdateAnswer(v);
     }
     //Activity level stuff
     protected void onResume() {

@@ -18,7 +18,7 @@ import android.widget.TextView;
 import java.util.Random;
 
 
-public class MainActivityFragment extends Fragment{
+public class MathActivityFragment extends Fragment{
 
     //private mainTopListener mListener;
     private static boolean answerLocked = false;
@@ -27,7 +27,7 @@ public class MainActivityFragment extends Fragment{
     private static Activity activity;
 
 
-    public MainActivityFragment() {
+    public MathActivityFragment() {
     }
 
     @Override

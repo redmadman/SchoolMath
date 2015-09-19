@@ -2,11 +2,10 @@ package diondouglas.schoolmath.utils;
 
 import android.app.Activity;
 import android.app.FragmentTransaction;
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.view.View;
 
-import diondouglas.schoolmath.MainActivityFragment;
+import diondouglas.schoolmath.MathActivityFragment;
 import diondouglas.schoolmath.R;
 import diondouglas.schoolmath.SchoolMath;
 
@@ -38,7 +37,7 @@ public class utilities {
     public static void openMainActivity(View view){
         Activity activity = (Activity)view.getContext();
         FragmentTransaction ft = activity.getFragmentManager().beginTransaction();
-        ft.addToBackStack(null).replace(R.id.mainFragment, new MainActivityFragment()).commit();
+        ft.addToBackStack(null).replace(R.id.mainFragment, new MathActivityFragment()).commit();
     }
 
     public static boolean getGender(View view){
