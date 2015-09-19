@@ -1,5 +1,6 @@
 package diondouglas.schoolmath.utils;
 
+import android.app.FragmentManager;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -39,13 +40,21 @@ public class rewardScreen extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view =  inflater.inflate(R.layout.reward_boy_layout, container, false);
+        final View view =  inflater.inflate(R.layout.reward_layout, container, false);
         mPrefs = SchoolMath.getmPrefs();
         ALL_REWARDS=getAllRewards();
         PLAYER_OWNED_REWARDS=getOwnedRewards();
         addOwnedReward();
         gridView = (GridView)view.findViewById(R.id.gridView1);
-        gridView.setAdapter(new RewardAdapter(this.getContext(), PLAYER_OWNED_REWARDS));
+        gridView.setAdapter(new RewardAdapter(getActivity(), PLAYER_OWNED_REWARDS));
+        Button b = (Button)view.findViewById(R.id.RewardsOKButton);
+        b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fm = getFragmentManager();
+                fm.popBackStack();
+            }
+        });
         return view;
     }
 

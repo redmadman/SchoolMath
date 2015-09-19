@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 
 
 public class SchoolMath extends Application {
@@ -28,7 +29,7 @@ public class SchoolMath extends Application {
     public void onCreate() {
         super.onCreate();
         SchoolMath.context = getApplicationContext();
-        context.getSharedPreferences("schoolMathPrefs", 0);
+        mPrefs = this.getSharedPreferences("schoolMathPrefs", 0);
     }
 
     public static Context getAppContext() {

@@ -9,19 +9,12 @@
     tools:context=".MainActivityFragment"
     android:orientation="vertical">
 
-    <fragment
+    <include
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="match_parent"
         android:layout_weight="1"
         android:id="@+id/main_top_fragment"
-        android:name="diondouglas.schoolmath.main_top_fragment"
-        tools:layout="@layout/fragment_main_top_fragment" />
-    <fragment
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:id="@+id/main_bottom_fragment"
-        android:name="diondouglas.schoolmath.keyPad"
-        tools:layout="@layout/fragment_key_pad" />
+        android:name="diondouglas.schoolmath.MainActivityFragment"
+        tools:layout="@layout/mainactivityfragment" />
 
 </LinearLayout>

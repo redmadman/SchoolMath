@@ -9,12 +9,19 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import java.util.Random;
+
 import diondouglas.schoolmath.utils.SplashScreenFragment;
 import diondouglas.schoolmath.utils.genderSelect;
+import diondouglas.schoolmath.utils.rewardScreen;
 
 public class MainActivity extends Activity  {
+
+
     private static boolean firstRun;
     private static SharedPreferences mySharedPreferences;
+
+
 
     protected SchoolMath mySchoolMath;
     @Override
@@ -44,7 +51,7 @@ public class MainActivity extends Activity  {
     public void openSplashScreen(){
         SharedPreferences.Editor editor = mySharedPreferences.edit();
         FragmentTransaction ft = getFragmentManager().beginTransaction();
-        ft.replace(R.id.mainFragment,new SplashScreenFragment(), "Splash Screen").commit();
+        ft.replace(R.id.mainFragment, new SplashScreenFragment(), "Splash Screen").commit();
     }
 
 
@@ -60,17 +67,10 @@ public class MainActivity extends Activity  {
                         | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
     }
 
-    public  void KeyPadClick(View view){
-        Button b = (Button)view;
-        String str = b.getText().toString();
-        main_top_fragment.UpdateAnswer(str);
+
+    public void KeyPadClick(View v){
+        MainActivityFragment.UpdateAnswer(v);
     }
-
-
-
-
-
-
     //Activity level stuff
     protected void onResume() {
         super.onResume();
@@ -90,10 +90,25 @@ public class MainActivity extends Activity  {
             mySchoolMath.setMyCurrentActivity(null);
     }
 
+
+
+
+    @Override
+    public void onBackPressed() {
+        if (getFragmentManager().getBackStackEntryCount() > 0 ){
+            getFragmentManager().popBackStack();
+        } else {
+            super.onBackPressed();
+        }
+    }
+
+
+
     //TESTING PURPOSES
     public void FRAGMENT_TEST_CLICK(View view){
         FragmentTransaction ft = getFragmentManager().beginTransaction();
         ft.replace(R.id.main_top_fragment,new keyPad(), "KeyPad2").commit();
     }
+
 
 }

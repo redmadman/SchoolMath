@@ -13,12 +13,14 @@ import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.util.Random;
 
 import diondouglas.schoolmath.utils.rewardScreen;
+import diondouglas.schoolmath.utils.utilities;
 
 
 public class main_top_fragment extends Fragment{
@@ -47,8 +49,23 @@ public class main_top_fragment extends Fragment{
         View v = inflater.inflate(R.layout.fragment_main_top_fragment, container, false);
         myView = v;
         activity = this.getActivity();
-        PopulateFields();
-        startProgressBar();
+        PopulateFields(v);
+        startProgressBar(v);
+        Button homeButton = (Button)v.findViewById(R.id.topPanelhomeButton);
+        homeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                utilities.OpenSplashScreen(v);
+            }
+        });
+
+        Button rewardsButton = (Button)v.findViewById(R.id.topPanelRewardsButton);
+        rewardsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                utilities.OpenRewardsScreen(v);
+            }
+        });
 
         return v;
     }
@@ -65,8 +82,11 @@ public class main_top_fragment extends Fragment{
         void onMainTopInteraction(Uri uri);
     }
 
-    public static void UpdateAnswer(String str){
+    public static void UpdateAnswer(View view){
 
+        Button b = (Button)view;
+        String str = b.getText().toString();
+        View v = view.getRootView();
         TextView tv = (TextView)myView.findViewById(R.id.AnswerTextField);
         String tmpstr;
 
@@ -78,7 +98,7 @@ public class main_top_fragment extends Fragment{
                 break;
             case "Check":
                 answerLocked=true;
-                CheckAnswer();
+                CheckAnswer(v);
                 break;
             default:
                 if(!answerLocked){
@@ -92,7 +112,7 @@ public class main_top_fragment extends Fragment{
 
     }
 
-    public static void PopulateFields(){
+    public static void PopulateFields(View view){
 
         //TODO Get operator from somewhere
         String OPERATOR= "+";
@@ -123,7 +143,9 @@ public class main_top_fragment extends Fragment{
 
     }
 
-    public static void CheckAnswer(){
+    public static void CheckAnswer(View view){
+
+
         String OPERATOR = "+";
         int topNumber, bottomNumber, answer, guess;
         TextView textView =(TextView) myView.findViewById(R.id.TopNumberTextField);
@@ -149,7 +171,9 @@ public class main_top_fragment extends Fragment{
 
         if(answer==guess){
             textView.setText("");
-            correctAnswer();
+            PopulateFields(view);
+            answerLocked = false;
+            correctAnswer(view);
 
         }else {
             //TODO Wrong Answer Logic
@@ -161,21 +185,27 @@ public class main_top_fragment extends Fragment{
 
     }
 
-    private static void correctAnswer(){
+    private static void correctAnswer(View view){
         //TODO Correct Answer Logic
         MediaPlayer mp = MediaPlayer.create(activity.getApplicationContext(), R.raw.tada);
         mp.start();
-        updateProgressBar();
+        updateProgressBar(view);
     }
 
-    private static void startProgressBar(){
+    private static void startProgressBar(View view){
         //TODO Make level/grade specific eventually
         ProgressBar progressBar = (ProgressBar)myView.findViewById(R.id.topPanelProgressBar);
-        SharedPreferences mPrefs = activity.getSharedPreferences("schoolMathPrefs", 0);
-        progressBar.setMax(mPrefs.getInt("rewards progress", 2));
+
+        SharedPreferences mPrefs = SchoolMath.getmPrefs();
+        //***************
+        mPrefs = view.getContext().getApplicationContext().getSharedPreferences("schoolMathPrefs",0);
+        //****************
+
+        int i = mPrefs.getInt("rewardsProgress", 2);
+        progressBar.setMax(i);
     }
 
-    private static void updateProgressBar(){
+    private static void updateProgressBar(View view){
         ProgressBar progressBar = (ProgressBar) myView.findViewById(R.id.topPanelProgressBar);
         int i = progressBar.getProgress();
         if (i<progressBar.getMax()){
@@ -184,13 +214,17 @@ public class main_top_fragment extends Fragment{
             if (i==progressBar.getMax()){
                 progressBar.setMax(progressBar.getMax() + progressBar.getMax());
                 progressBar.setProgress(0);
-                SharedPreferences mPrefs = activity.getSharedPreferences("schoolMathPrefs", 0);
+                SharedPreferences mPrefs = SchoolMath.getmPrefs();
+                //***************
+                mPrefs = view.getContext().getApplicationContext().getSharedPreferences("schoolMathPrefs",0);
+                //****************
                 SharedPreferences.Editor editor = mPrefs.edit();
-                editor.putInt("rewards progress", i).apply();
-                FragmentTransaction ft = activity.getFragmentManager().beginTransaction();
-                ft.replace(R.id.mainFragment, new rewardScreen(), "Rewards Screen").addToBackStack(null).commit();
+                editor.putInt("rewardsProgress", i*2);
+                editor.commit();
+                diondouglas.schoolmath.utils.utilities.OpenRewardsScreen(view);
             }
         }
 
     }
+
 }
