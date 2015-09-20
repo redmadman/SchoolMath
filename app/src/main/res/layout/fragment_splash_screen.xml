@@ -1,27 +1,53 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="diondouglas.schoolmath.utils.SplashScreenFragment">
+    tools:context="diondouglas.schoolmath.utils.SplashScreenFragment"
+    android:orientation="vertical">
 
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="New Button"
-        android:id="@+id/SplashScreenOkButton"
-        android:layout_gravity="center" />
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/RewardsButton"
-        android:text="Rewards"/>
+    <LinearLayout android:layout_height="fill_parent"
+        android:layout_width="fill_parent"
+        android:layout_gravity="center_horizontal|top"
+        android:gravity="center"
+        android:orientation="vertical">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Settings"
-        android:id="@+id/SplashScreenSettingsButton"
-        android:layout_gravity="bottom|center"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Game"
+            android:id="@+id/SplashScreenOkButton"
+            android:layout_gravity="center"
+            android:gravity="center"/>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"></LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom"
+        android:gravity="center">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Change Settings"
+            android:id="@+id/SplashScreenSettingsButton"
+            android:layout_gravity="bottom|center" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/RewardsButton"
+            android:text="View Rewards"
+            android:layout_gravity="bottom" />
+    </LinearLayout>
 
 
 </FrameLayout>
