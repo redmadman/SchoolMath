@@ -1,13 +1,17 @@
-package diondouglas.schoolmath.utils;
+package diondouglas.firstgrademathbydion.utils;
 
 import android.app.Activity;
 import android.app.FragmentTransaction;
 import android.content.SharedPreferences;
 import android.view.View;
 
-import diondouglas.schoolmath.MathActivityFragment;
-import diondouglas.schoolmath.R;
-import diondouglas.schoolmath.SchoolMath;
+import diondouglas.firstgrademathbydion.R;
+import diondouglas.firstgrademathbydion.SchoolMath;
+import diondouglas.firstgrademathbydion.fragments.MathActivityFragment;
+import diondouglas.firstgrademathbydion.fragments.SelectGradeLevel;
+import diondouglas.firstgrademathbydion.fragments.SplashScreenFragment;
+import diondouglas.firstgrademathbydion.fragments.genderSelect;
+import diondouglas.firstgrademathbydion.fragments.rewardScreen;
 
 public class utilities {
 

@@ -1,4 +1,4 @@
-package diondouglas.schoolmath;
+package diondouglas.firstgrademathbydion;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

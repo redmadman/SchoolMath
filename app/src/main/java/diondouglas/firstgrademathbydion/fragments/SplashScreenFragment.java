@@ -1,6 +1,5 @@
-package diondouglas.schoolmath.utils;
+package diondouglas.firstgrademathbydion.fragments;
 
-import android.app.FragmentTransaction;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -9,8 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import diondouglas.schoolmath.MathActivityFragment;
-import diondouglas.schoolmath.R;
+import diondouglas.firstgrademathbydion.R;
+import diondouglas.firstgrademathbydion.utils.utilities;
 
 
 public class SplashScreenFragment extends Fragment {
@@ -42,7 +41,7 @@ public class SplashScreenFragment extends Fragment {
         settingsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                utilities.OpenSplashScreen(v);
+                utilities.OpenGenderSelect(v);
             }
         });
         Button rewardsButton = (Button)view.findViewById(R.id.RewardsButton);

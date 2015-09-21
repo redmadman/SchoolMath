@@ -5,11 +5,11 @@ android {
     buildToolsVersion "22.0.1"
 
     defaultConfig {
-        applicationId "diondouglas.schoolmath"
+        applicationId "diondouglas.firstgrademathbydion"
         minSdkVersion 17
         targetSdkVersion 23
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "1.4.0"
     }
 
     buildTypes {

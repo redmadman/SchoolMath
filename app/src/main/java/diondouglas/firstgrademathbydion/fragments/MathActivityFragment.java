@@ -1,12 +1,10 @@
-package diondouglas.schoolmath;
+package diondouglas.firstgrademathbydion.fragments;
 
 import android.app.Activity;
 import android.app.Fragment;
-import android.app.FragmentTransaction;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.media.MediaPlayer;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +14,9 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.util.Random;
+
+import diondouglas.firstgrademathbydion.R;
+import diondouglas.firstgrademathbydion.SchoolMath;
 
 
 public class MathActivityFragment extends Fragment{
@@ -182,7 +183,8 @@ public class MathActivityFragment extends Fragment{
                 SharedPreferences.Editor editor = mPrefs.edit();
                 editor.putInt("rewardsProgress", i*2);
                 editor.commit();
-                diondouglas.schoolmath.utils.utilities.OpenRewardsScreen(view);
+                SchoolMath.setAddReward(true);
+                diondouglas.firstgrademathbydion.utils.utilities.OpenRewardsScreen(view);
             }
         }
 

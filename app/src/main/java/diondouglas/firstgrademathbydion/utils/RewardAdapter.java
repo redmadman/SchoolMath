@@ -1,4 +1,4 @@
-package diondouglas.schoolmath.utils;
+package diondouglas.firstgrademathbydion.utils;
 
 
 import android.content.Context;
@@ -12,7 +12,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import diondouglas.schoolmath.R;
+import diondouglas.firstgrademathbydion.R;
 
 public class RewardAdapter extends BaseAdapter {
     private Context context;

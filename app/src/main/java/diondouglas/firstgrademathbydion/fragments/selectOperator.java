@@ -1,4 +1,4 @@
-package diondouglas.schoolmath.utils;
+package diondouglas.firstgrademathbydion.fragments;
 
 
 import android.os.Bundle;
@@ -7,7 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import diondouglas.schoolmath.R;
+import diondouglas.firstgrademathbydion.R;
 
 /**
  * A simple {@link Fragment} subclass.

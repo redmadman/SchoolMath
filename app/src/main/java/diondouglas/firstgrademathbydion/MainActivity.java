@@ -1,4 +1,4 @@
-package diondouglas.schoolmath;
+package diondouglas.firstgrademathbydion;
 
 import android.app.Activity;
 import android.app.FragmentTransaction;
@@ -6,10 +6,11 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 
-import diondouglas.schoolmath.utils.SelectGradeLevel;
-import diondouglas.schoolmath.utils.SplashScreenFragment;
-import diondouglas.schoolmath.utils.genderSelect;
-import diondouglas.schoolmath.utils.utilities;
+import diondouglas.firstgrademathbydion.fragments.MathActivityFragment;
+import diondouglas.firstgrademathbydion.fragments.SelectGradeLevel;
+import diondouglas.firstgrademathbydion.fragments.SplashScreenFragment;
+import diondouglas.firstgrademathbydion.fragments.genderSelect;
+import diondouglas.firstgrademathbydion.utils.utilities;
 
 public class MainActivity extends Activity {
 
@@ -26,7 +27,7 @@ public class MainActivity extends Activity {
         mySchoolMath = (SchoolMath)this.getApplicationContext();
         hideSystemUI(this);
         setTheme(utilities.getGenderTheme(this.getWindow().getDecorView().findViewById(android.R.id.content)));
-        setContentView(R.layout.activity_main);
+        setContentView(diondouglas.firstgrademathbydion.R.layout.activity_main);
         mySharedPreferences = this.getSharedPreferences("schoolMathPrefs",0);
         if(getFirstRun()){
             openSettings();
@@ -42,12 +43,12 @@ public class MainActivity extends Activity {
     public void openSettings(){
         SharedPreferences.Editor editor = mySharedPreferences.edit();
         FragmentTransaction ft = getFragmentManager().beginTransaction();
-        ft.replace(R.id.mainFragment,new genderSelect(), "GenderSelect").commit();
+        ft.replace(diondouglas.firstgrademathbydion.R.id.mainFragment,new genderSelect(), "GenderSelect").commit();
     }
     public void openSplashScreen(){
         SharedPreferences.Editor editor = mySharedPreferences.edit();
         FragmentTransaction ft = getFragmentManager().beginTransaction();
-        ft.replace(R.id.mainFragment, new SplashScreenFragment(), "Splash Screen").commit();
+        ft.replace(diondouglas.firstgrademathbydion.R.id.mainFragment, new SplashScreenFragment(), "Splash Screen").commit();
     }
 
 
@@ -107,9 +108,6 @@ public class MainActivity extends Activity {
     }
     public void goSplashScreen(View view){
         utilities.OpenSplashScreen(view);
-    }
-    public void goSettings(View view){
-        utilities.OpenGenderSelect(view);
     }
 
 

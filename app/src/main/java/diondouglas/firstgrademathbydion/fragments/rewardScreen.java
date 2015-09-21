@@ -1,4 +1,4 @@
-package diondouglas.schoolmath.utils;
+package diondouglas.firstgrademathbydion.fragments;
 
 import android.app.FragmentManager;
 import android.content.SharedPreferences;
@@ -7,25 +7,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
-import android.widget.ImageButton;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
-import diondouglas.schoolmath.R;
-import diondouglas.schoolmath.SchoolMath;
+import diondouglas.firstgrademathbydion.R;
+import diondouglas.firstgrademathbydion.SchoolMath;
+import diondouglas.firstgrademathbydion.utils.RewardAdapter;
 
-import android.app.FragmentTransaction;
-import android.net.Uri;
-import android.os.Bundle;
 import android.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 
 public class rewardScreen extends Fragment {
@@ -45,7 +38,7 @@ public class rewardScreen extends Fragment {
         ALL_REWARDS=getAllRewards();
         PLAYER_OWNED_REWARDS=getOwnedRewards();
         //TODO Put in way to add reward on opening?
-        if (SchoolMath.isAddReward()){
+        if (SchoolMath.isAddReward()||PLAYER_OWNED_REWARDS==null){
             addOwnedReward();
         }
         gridView = (GridView)view.findViewById(R.id.gridView1);

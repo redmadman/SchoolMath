@@ -1,8 +1,6 @@
-package diondouglas.schoolmath.utils;
+package diondouglas.firstgrademathbydion.fragments;
 
-import android.app.Activity;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;
@@ -10,8 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import diondouglas.schoolmath.R;
-import diondouglas.schoolmath.SchoolMath;
+import diondouglas.firstgrademathbydion.R;
+import diondouglas.firstgrademathbydion.SchoolMath;
 
 
 public class SelectGradeLevel extends Fragment {
@@ -34,7 +32,7 @@ public class SelectGradeLevel extends Fragment {
     public static void clickButton(View view){
         //TODO Logic to select grade level
         Button button = (Button)view;
-        int i=0;
+        int i;
         switch (button.getText().toString()){
             case "K":
                 i=0;

@@ -1,4 +1,4 @@
-package diondouglas.schoolmath.utils;
+package diondouglas.firstgrademathbydion.fragments;
 
 import android.app.FragmentTransaction;
 import android.content.SharedPreferences;
@@ -9,8 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 
-import diondouglas.schoolmath.R;
-import diondouglas.schoolmath.SchoolMath;
+import diondouglas.firstgrademathbydion.R;
+import diondouglas.firstgrademathbydion.SchoolMath;
 
 public class genderSelect extends Fragment {
 
@@ -47,7 +47,6 @@ public class genderSelect extends Fragment {
                 selectGirl();
             }
         });
-
         return view;
     }
 
