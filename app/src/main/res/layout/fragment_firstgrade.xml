@@ -15,6 +15,6 @@
         android:layout_weight="1"
         android:id="@+id/main_top_fragment"
         android:name="diondouglas.schoolmath.MainActivityFragment"
-        tools:layout="@layout/mainactivityfragment" />
+        tools:layout="@layout/firstgrademathlayout" />
 
 </LinearLayout>

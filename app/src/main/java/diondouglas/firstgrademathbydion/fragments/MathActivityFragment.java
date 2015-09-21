@@ -35,7 +35,7 @@ public class MathActivityFragment extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         //return inflater.inflate(R.layout.fragment_firstgrade, container, false);
-        View root = inflater.inflate(R.layout.mainactivityfragment, container, false);
+        View root = inflater.inflate(R.layout.firstgrademathlayout, container, false);
         myView = root;
         myRandom = new Random();
         activity = (Activity)root.getContext();
