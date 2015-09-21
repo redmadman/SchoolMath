@@ -1,4 +1,4 @@
-package diondouglas.firstgrademathbydion.fragments;
+package diondouglas.firstgrademathbydion.fragments.general;
 
 import android.net.Uri;
 import android.os.Bundle;

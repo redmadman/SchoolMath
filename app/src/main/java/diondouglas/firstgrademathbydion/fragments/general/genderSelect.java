@@ -1,6 +1,7 @@
-package diondouglas.firstgrademathbydion.fragments;
+package diondouglas.firstgrademathbydion.fragments.general;
 
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -70,10 +71,9 @@ public class genderSelect extends Fragment {
     }
 
     public void nextPref(){
-
-        //TOFO MORE preferences page if/when we add more
-        FragmentTransaction ft = getFragmentManager().beginTransaction();
-        ft.replace(R.id.mainFragment,new SplashScreenFragment(), "Splash Screen").commit();
+        Intent intent = this.getActivity().getIntent();
+        this.getActivity().finish();
+        startActivity(intent);
     }
 
     public void setRan(){

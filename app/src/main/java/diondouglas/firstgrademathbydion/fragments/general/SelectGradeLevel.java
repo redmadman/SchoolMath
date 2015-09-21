@@ -1,4 +1,4 @@
-package diondouglas.firstgrademathbydion.fragments;
+package diondouglas.firstgrademathbydion.fragments.general;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;

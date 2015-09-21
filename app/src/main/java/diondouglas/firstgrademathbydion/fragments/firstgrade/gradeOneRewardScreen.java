@@ -1,4 +1,4 @@
-package diondouglas.firstgrademathbydion.fragments;
+package diondouglas.firstgrademathbydion.fragments.firstgrade;
 
 import android.app.FragmentManager;
 import android.content.SharedPreferences;
@@ -16,12 +16,11 @@ import java.util.Set;
 
 import diondouglas.firstgrademathbydion.R;
 import diondouglas.firstgrademathbydion.SchoolMath;
-import diondouglas.firstgrademathbydion.utils.RewardAdapter;
 
 import android.app.Fragment;
 import android.widget.Button;
 
-public class rewardScreen extends Fragment {
+public class gradeOneRewardScreen extends Fragment {
     SharedPreferences mPrefs;
     //MathUtils mathUtils;
     static int intGenderLayout;
@@ -42,7 +41,7 @@ public class rewardScreen extends Fragment {
             addOwnedReward();
         }
         gridView = (GridView)view.findViewById(R.id.gridView1);
-        gridView.setAdapter(new RewardAdapter(getActivity(), PLAYER_OWNED_REWARDS));
+        gridView.setAdapter(new GradeOneRewardAdapter(getActivity(), PLAYER_OWNED_REWARDS));
         Button b = (Button)view.findViewById(R.id.RewardsOKButton);
         b.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,7 +53,7 @@ public class rewardScreen extends Fragment {
         return view;
     }
 
-    public rewardScreen(){
+    public gradeOneRewardScreen(){
 
     }
 

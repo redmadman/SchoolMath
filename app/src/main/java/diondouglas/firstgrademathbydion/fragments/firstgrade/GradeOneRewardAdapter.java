@@ -1,4 +1,4 @@
-package diondouglas.firstgrademathbydion.utils;
+package diondouglas.firstgrademathbydion.fragments.firstgrade;
 
 
 import android.content.Context;
@@ -14,11 +14,11 @@ import android.widget.TextView;
 
 import diondouglas.firstgrademathbydion.R;
 
-public class RewardAdapter extends BaseAdapter {
+public class GradeOneRewardAdapter extends BaseAdapter {
     private Context context;
     private final String[] rewardNames;
 
-    public RewardAdapter(Context context, String[] rewardNames){
+    public GradeOneRewardAdapter(Context context, String[] rewardNames){
         this.context = context;
         this.rewardNames = rewardNames;
     }

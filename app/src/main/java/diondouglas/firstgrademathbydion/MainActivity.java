@@ -7,9 +7,9 @@ import android.os.Bundle;
 import android.view.View;
 
 import diondouglas.firstgrademathbydion.fragments.MathActivityFragment;
-import diondouglas.firstgrademathbydion.fragments.SelectGradeLevel;
-import diondouglas.firstgrademathbydion.fragments.SplashScreenFragment;
-import diondouglas.firstgrademathbydion.fragments.genderSelect;
+import diondouglas.firstgrademathbydion.fragments.general.SelectGradeLevel;
+import diondouglas.firstgrademathbydion.fragments.general.SplashScreenFragment;
+import diondouglas.firstgrademathbydion.fragments.general.genderSelect;
 import diondouglas.firstgrademathbydion.utils.utilities;
 
 public class MainActivity extends Activity {
