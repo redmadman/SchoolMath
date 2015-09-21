@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight="9">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3">
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/TopNumberTextField"
+                    android:text=""
+                    android:textSize="50dp"
+                    android:gravity="right"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center"
+                    android:gravity="right">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="+"
+                        android:textSize="50sp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:layout_gravity="right"
+                        android:id="@+id/OeratorTextField"
+                        />
+                    <TextView
+                        android:layout_width="0sp"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textSize="50sp"
+                        android:gravity="right"
+                        android:width="0dp"
+                        android:layout_weight="1"
+                        android:id="@+id/BottomNumberTextField"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="200dp"
+                    android:layout_height="3sp"
+                    android:gravity="right"
+                    android:layout_gravity="right"
+                    android:background="#010101">
+
+                </LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="50sp"
+
+                    android:gravity="right"
+                    android:id="@+id/AnswerTextField"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:orientation="vertical"
+                android:paddingLeft="5dp"
+                >
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Home"
+                    android:id="@+id/topPanelhomeButton"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:onClick="goSplashScreen"/>
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Rewards"
+                    android:layout_gravity="center"
+                    android:id="@+id/topPanelRewardsButton"
+                    android:layout_weight="1"
+                    android:onClick="goRewardsFrag"/>
+            </LinearLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+            <ProgressBar
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/topPanelProgressBar"
+                android:minHeight="10dp"
+                android:maxHeight="30dp"
+                android:max="2"
+                style="?android:attr/progressBarStyleHorizontal"/>
+        </LinearLayout>
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="50"
+            android:orientation="vertical"
+            android:id="@+id/rootLayout">
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="25">
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight=".33"
+                    android:text="1"
+                    android:onClick="KeyPadClick"/>
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight=".33"
+                    android:text="2"
+                    android:onClick="KeyPadClick" />
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:text="3"
+                    android:onClick="KeyPadClick"
+                    android:layout_weight=".33"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="25">
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight=".33"
+                    android:text="4"
+                    android:onClick="KeyPadClick" />
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight=".33"
+                    android:text="5"
+                    android:onClick="KeyPadClick" />
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:text="6"
+                    android:onClick="KeyPadClick"
+                    android:layout_weight=".33"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="25">
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight=".33"
+                    android:text="7"
+                    android:onClick="KeyPadClick" />
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight=".33"
+                    android:text="8"
+                    android:onClick="KeyPadClick" />
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:text="9"
+                    android:onClick="KeyPadClick"
+                    android:layout_weight=".33"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="25">
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight=".33"
+                    android:text="CLEAR"
+                    android:onClick="KeyPadClick" />
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight=".33"
+                    android:text="0"
+                    android:onClick="KeyPadClick" />
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:text="Check"
+                    android:onClick="KeyPadClick"
+                    android:textSize="12dp"
+                    android:layout_weight=".33"/>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>
