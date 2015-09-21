@@ -6,7 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 
-import diondouglas.firstgrademathbydion.fragments.MathActivityFragment;
+import diondouglas.firstgrademathbydion.fragments.firstgrade.MathActivityFragment;
 import diondouglas.firstgrademathbydion.fragments.general.SelectGradeLevel;
 import diondouglas.firstgrademathbydion.fragments.general.SplashScreenFragment;
 import diondouglas.firstgrademathbydion.fragments.general.genderSelect;
