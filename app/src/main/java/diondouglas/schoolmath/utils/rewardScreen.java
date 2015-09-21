@@ -45,7 +45,9 @@ public class rewardScreen extends Fragment {
         ALL_REWARDS=getAllRewards();
         PLAYER_OWNED_REWARDS=getOwnedRewards();
         //TODO Put in way to add reward on opening?
-        addOwnedReward();
+        if (SchoolMath.isAddReward()){
+            addOwnedReward();
+        }
         gridView = (GridView)view.findViewById(R.id.gridView1);
         gridView.setAdapter(new RewardAdapter(getActivity(), PLAYER_OWNED_REWARDS));
         Button b = (Button)view.findViewById(R.id.RewardsOKButton);
@@ -116,6 +118,7 @@ public class rewardScreen extends Fragment {
         editor.putStringSet("owned_rewards", set);
         editor.commit();
         PLAYER_OWNED_REWARDS = getOwnedRewards(); //Refresh static variable
+        SchoolMath.setAddReward(false);
     }
 
     public boolean isRewardOwned(String s){

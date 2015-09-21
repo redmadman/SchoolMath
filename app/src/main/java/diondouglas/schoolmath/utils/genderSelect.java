@@ -75,7 +75,6 @@ public class genderSelect extends Fragment {
         //TOFO MORE preferences page if/when we add more
         FragmentTransaction ft = getFragmentManager().beginTransaction();
         ft.replace(R.id.mainFragment,new SplashScreenFragment(), "Splash Screen").commit();
-
     }
 
     public void setRan(){

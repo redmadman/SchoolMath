@@ -8,6 +8,6 @@
         android:layout_height="match_parent"
         android:id="@+id/mainFragment"
         android:name="diondouglas.schoolmath.MathActivityFragment"
-        tools:layout="@layout/fragment_main"/>
+        />
 
 </LinearLayout>

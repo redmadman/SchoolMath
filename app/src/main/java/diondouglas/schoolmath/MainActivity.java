@@ -6,11 +6,12 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 
+import diondouglas.schoolmath.utils.SelectGradeLevel;
 import diondouglas.schoolmath.utils.SplashScreenFragment;
 import diondouglas.schoolmath.utils.genderSelect;
 import diondouglas.schoolmath.utils.utilities;
 
-public class MainActivity extends Activity  {
+public class MainActivity extends Activity {
 
 
     private static boolean firstRun;
@@ -25,14 +26,13 @@ public class MainActivity extends Activity  {
         mySchoolMath = (SchoolMath)this.getApplicationContext();
         hideSystemUI(this);
         setTheme(utilities.getGenderTheme(this.getWindow().getDecorView().findViewById(android.R.id.content)));
-        setContentView(R.layout.activity_math);
+        setContentView(R.layout.activity_main);
         mySharedPreferences = this.getSharedPreferences("schoolMathPrefs",0);
         if(getFirstRun()){
             openSettings();
         }else {
             openSplashScreen();
         }
-
     }
 
     private boolean getFirstRun(){
@@ -49,6 +49,7 @@ public class MainActivity extends Activity  {
         FragmentTransaction ft = getFragmentManager().beginTransaction();
         ft.replace(R.id.mainFragment, new SplashScreenFragment(), "Splash Screen").commit();
     }
+
 
 
     public static void hideSystemUI(Activity activity) {
@@ -107,13 +108,14 @@ public class MainActivity extends Activity  {
     public void goSplashScreen(View view){
         utilities.OpenSplashScreen(view);
     }
+    public void goSettings(View view){
+        utilities.OpenGenderSelect(view);
+    }
 
 
 
-    //TESTING PURPOSES
-    public void FRAGMENT_TEST_CLICK(View view){
-        FragmentTransaction ft = getFragmentManager().beginTransaction();
-        ft.replace(R.id.main_top_fragment,new keyPad(), "KeyPad2").commit();
+    public void selectGradeLevelListener(View v){
+        SelectGradeLevel.clickButton(v);
     }
 
 

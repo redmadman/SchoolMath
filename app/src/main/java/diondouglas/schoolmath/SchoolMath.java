@@ -13,7 +13,10 @@ public class SchoolMath extends Application {
     public static SharedPreferences getmPrefs() {
         return mPrefs;
     }
+    private static int currentGradeLevel;
+    private static boolean addReward =false;
 
+    public static String currentOperator;
 
     private Activity myCurrentActivity = null;
 
@@ -31,7 +34,32 @@ public class SchoolMath extends Application {
         mPrefs = this.getSharedPreferences("schoolMathPrefs", 0);
     }
 
+
+    //Getters & Setters
     public static Context getAppContext() {
         return SchoolMath.context;
     }
+    public static int getCurrentGradeLevel(){
+        int gradeLevel;
+        gradeLevel = mPrefs.getInt("currentGradeLevel", 0);
+        return gradeLevel;
+    }
+    public static void setCurrentGradeLevel(int i){
+        currentGradeLevel=i;
+    }
+    public static String getCurrentOperator() {
+        return currentOperator;
+    }
+    public static void setCurrentOperator(String currentOperator) {
+        SchoolMath.currentOperator = currentOperator;
+    }
+    public static boolean isAddReward() {
+        return addReward;
+    }
+    public static void setAddReward(boolean addReward) {
+        SchoolMath.addReward = addReward;
+    }
+
 }
+
+
