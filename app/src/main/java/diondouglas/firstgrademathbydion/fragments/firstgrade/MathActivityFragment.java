@@ -6,26 +6,32 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import java.util.Locale;
 import java.util.Random;
 
+import diondouglas.firstgrademathbydion.MainActivity;
 import diondouglas.firstgrademathbydion.R;
 import diondouglas.firstgrademathbydion.SchoolMath;
 
 
-public class MathActivityFragment extends Fragment{
+public class MathActivityFragment extends Fragment implements TextToSpeech.OnInitListener{
 
     //private mainTopListener mListener;
     private static boolean answerLocked = false;
     private static View myView;
     private static Random myRandom;
     private static Activity activity;
+    private TextToSpeech tts;
+    private static int ANSWER;
 
 
     public MathActivityFragment() {
@@ -35,14 +41,14 @@ public class MathActivityFragment extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         //return inflater.inflate(R.layout.fragment_firstgrade, container, false);
-        View root = inflater.inflate(R.layout.firstgrademathlayout, container, false);
-        myView = root;
+        View view = inflater.inflate(R.layout.firstgrademathlayout, container, false);
+        myView = view;
         myRandom = new Random();
-        activity = (Activity)root.getContext();
-        PopulateFields(root);
-        startProgressBar(root);
-
-        return root;
+        activity = (Activity)view.getContext();
+        PopulateFields(view);
+        startProgressBar(view);
+        tts = new TextToSpeech(getActivity(), this);
+        return view;
     }
 
     public static void UpdateAnswer(View view){
@@ -133,6 +139,7 @@ public class MathActivityFragment extends Fragment{
         }
 
         if(answer==guess){
+            ANSWER = answer;
             textView.setText("");
             PopulateFields(view);
             answerLocked = false;
@@ -149,9 +156,14 @@ public class MathActivityFragment extends Fragment{
     }
 
     private static void correctAnswer(View view){
-        MediaPlayer mp = MediaPlayer.create(activity.getApplicationContext(), R.raw.tada);
-        mp.start();
+        //MediaPlayer mp = MediaPlayer.create(activity.getApplicationContext(), R.raw.tada);
+        //mp.start();
+        MainActivity.speak(ANSWER + " is correct)");
         updateProgressBar(view);
+    }
+
+    @Override
+    public void onInit(int status){
     }
 
     private static void startProgressBar(View view){
@@ -189,6 +201,16 @@ public class MathActivityFragment extends Fragment{
         }
 
     }
+
+    @Override
+    public void onDestroy(){
+        if (tts!=null){
+            tts.stop();
+            tts.shutdown();
+        }
+        super.onDestroy();
+    }
+
 
     public void KeyPadClick(View v){
         UpdateAnswer(v);

@@ -3,8 +3,13 @@ package diondouglas.firstgrademathbydion;
 import android.app.Activity;
 import android.app.FragmentTransaction;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
 import android.view.View;
+import android.widget.TextView;
+
+import java.util.Locale;
 
 import diondouglas.firstgrademathbydion.fragments.firstgrade.MathActivityFragment;
 import diondouglas.firstgrademathbydion.fragments.general.SelectGradeLevel;
@@ -12,13 +17,18 @@ import diondouglas.firstgrademathbydion.fragments.general.SplashScreenFragment;
 import diondouglas.firstgrademathbydion.fragments.general.genderSelect;
 import diondouglas.firstgrademathbydion.utils.utilities;
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements TextToSpeech.OnInitListener{
 
 
     private static boolean firstRun;
     private static SharedPreferences mySharedPreferences;
+    private static TextToSpeech tts;
 
 
+    @Override
+    public void onInit(int status) {
+
+    }
 
     protected SchoolMath mySchoolMath;
     @Override
@@ -34,6 +44,7 @@ public class MainActivity extends Activity {
         }else {
             openSplashScreen();
         }
+        tts = new TextToSpeech(this, this);
     }
 
     private boolean getFirstRun(){
@@ -43,7 +54,7 @@ public class MainActivity extends Activity {
     public void openSettings(){
         SharedPreferences.Editor editor = mySharedPreferences.edit();
         FragmentTransaction ft = getFragmentManager().beginTransaction();
-        ft.replace(diondouglas.firstgrademathbydion.R.id.mainFragment,new genderSelect(), "GenderSelect").commit();
+        ft.replace(diondouglas.firstgrademathbydion.R.id.mainFragment, new genderSelect(), "GenderSelect").commit();
     }
     public void openSplashScreen(){
         SharedPreferences.Editor editor = mySharedPreferences.edit();
@@ -116,5 +127,14 @@ public class MainActivity extends Activity {
         SelectGradeLevel.clickButton(v);
     }
 
+    public static void speak(String text) {
+        if (Build.VERSION.RELEASE.startsWith("5")){
+            tts.speak(text, TextToSpeech.QUEUE_FLUSH, null, null);
+        }else {
+            tts.speak(text, TextToSpeech.QUEUE_FLUSH, null);
 
+        }
+    }
 }
+
+

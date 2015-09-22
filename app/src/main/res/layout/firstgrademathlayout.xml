@@ -23,7 +23,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="3"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:id="@+id/theProblemLinearLayout"
+                android:clickable="true"
+                >
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -70,7 +73,6 @@
                     android:layout_height="wrap_content"
                     android:text=""
                     android:textSize="50sp"
-
                     android:gravity="right"
                     android:id="@+id/AnswerTextField"/>
 
@@ -228,12 +230,6 @@
 
     </LinearLayout>
 
-    <SeekBar
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:id="@+id/seekBar"
-        android:layout_gravity="right"
-        android:layout_weight="1" />
 
 
 </LinearLayout>
