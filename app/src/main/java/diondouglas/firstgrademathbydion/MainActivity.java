@@ -135,6 +135,10 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 
         }
     }
+
+    public void theProblem(View view){
+        MathActivityFragment.theProblem(view);
+    }
 }
 
 

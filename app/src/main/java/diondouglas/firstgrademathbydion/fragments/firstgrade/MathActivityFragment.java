@@ -15,6 +15,8 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.util.Locale;
 import java.util.Random;
 
@@ -211,6 +213,15 @@ public class MathActivityFragment extends Fragment implements TextToSpeech.OnIni
         super.onDestroy();
     }
 
+
+    public static void theProblem(View view){
+        String string = "";
+        TextView tv = (TextView)view.findViewById(R.id.TopNumberTextField);
+        string = tv.getText().toString() + " plus ";
+        tv = (TextView)view.findViewById(R.id.BottomNumberTextField);
+        string = string + tv.getText().toString();
+        MainActivity.speak(string);
+    }
 
     public void KeyPadClick(View v){
         UpdateAnswer(v);

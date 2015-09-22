@@ -26,6 +26,7 @@
                 android:orientation="vertical"
                 android:id="@+id/theProblemLinearLayout"
                 android:clickable="true"
+                android:onClick="theProblem"
                 >
                 <TextView
                     android:layout_width="match_parent"
