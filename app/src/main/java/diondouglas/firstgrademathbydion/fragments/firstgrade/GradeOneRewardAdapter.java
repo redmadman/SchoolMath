@@ -57,8 +57,6 @@ public class GradeOneRewardAdapter extends BaseAdapter {
             }
 
 
-            //TODO FIX THIS - LOGIC FOR REWARDS PICTURES and names... somewhere...
-
         } else {
             gridView = convertView;
         }

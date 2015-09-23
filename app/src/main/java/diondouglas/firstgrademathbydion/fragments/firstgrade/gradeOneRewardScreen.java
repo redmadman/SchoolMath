@@ -36,9 +36,8 @@ public class gradeOneRewardScreen extends Fragment {
         mPrefs = SchoolMath.getmPrefs();
         ALL_REWARDS=getAllRewards();
         PLAYER_OWNED_REWARDS=getOwnedRewards();
-        //TODO Put in way to add reward on opening?
         if (SchoolMath.isAddReward()||PLAYER_OWNED_REWARDS==null){
-            addOwnedReward();
+            addRewardToOwned();
         }
         gridView = (GridView)view.findViewById(R.id.gridView1);
         gridView.setAdapter(new GradeOneRewardAdapter(getActivity(), PLAYER_OWNED_REWARDS));
@@ -63,8 +62,7 @@ public class gradeOneRewardScreen extends Fragment {
         mPrefs = this.getActivity().getSharedPreferences("schoolMathPrefs", 0);
     }
 
-    public void addOwnedReward(){
-        //TODO Put in method to find a new reward
+    public void addRewardToOwned(){
         mPrefs=getActivity().getSharedPreferences("schoolMathPrefs",0);
         ArrayList<String> list = new ArrayList<String>();
         SharedPreferences.Editor editor = mPrefs.edit();

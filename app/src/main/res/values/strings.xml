@@ -4,6 +4,10 @@
     <string name="action_settings">Settings</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+
+
     <string-array name="rewards">
         <item>Dolphin</item>
         <item>Penguin</item>
@@ -12,4 +16,34 @@
         <item>Hedgehog</item>
         <item>Giraffe</item>
     </string-array>
+
+
+    <string-array name="howmanypics">
+        <item>Dolphin</item>
+        <item>Penguin</item>
+        <item>Bear</item>
+        <item>Hedgehog</item>
+        <item>Giraffe</item>
+        <item>Apple</item>
+        <item>Car</item>
+        <item>Eagle</item>
+    </string-array>
+
+
+
+    <string-array name="goodjob">
+        <item>Awesome</item>
+        <item>Excellent</item>
+        <item>Good Job</item>
+        <item>You are so smart</item>
+        <item>Keep it going</item>
+        <item>Wow</item>
+        <item>You got it right</item>
+        <item>You\'re on a roll</item>
+    </string-array>
+
+
+
+    <string name="title_activity_test__activity">TEST_ACTIVITY</string>
+    <string name="title_activity_test_">Test_Activity</string>
 </resources>

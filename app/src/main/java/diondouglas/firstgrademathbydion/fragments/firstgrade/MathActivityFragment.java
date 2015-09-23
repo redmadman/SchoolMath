@@ -49,6 +49,7 @@ public class MathActivityFragment extends Fragment implements TextToSpeech.OnIni
         activity = (Activity)view.getContext();
         PopulateFields(view);
         startProgressBar(view);
+
         tts = new TextToSpeech(getActivity(), this);
         return view;
     }

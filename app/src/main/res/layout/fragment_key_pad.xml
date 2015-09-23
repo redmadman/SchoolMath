@@ -1,10 +1,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="diondouglas.firstgrademathbydion.util.keyPad"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:context="diondouglas.firstgrademathbydion.utils.KeyPadFragment"
     android:layout_weight="1">
-
-
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
@@ -16,22 +15,25 @@
             android:layout_height="wrap_content"
             android:layout_weight="25">
             <Button
+                android:id="@+id/keyPadButton1"
                 android:layout_width="0dp"
                 android:layout_height="fill_parent"
                 android:layout_weight=".33"
                 android:text="1"
-                android:onClick="KeyPadClick"/>
+                />
             <Button
+                android:id="@+id/keyPadButton2"
                 android:layout_width="0dp"
                 android:layout_height="fill_parent"
                 android:layout_weight=".33"
                 android:text="2"
-                android:onClick="KeyPadClick" />
+                 />
             <Button
+                android:id="@+id/keyPadButton3"
                 android:layout_width="0dp"
                 android:layout_height="fill_parent"
                 android:text="3"
-                android:onClick="KeyPadClick"
+                
                 android:layout_weight=".33"/>
         </LinearLayout>
 
@@ -40,22 +42,25 @@
             android:layout_height="wrap_content"
             android:layout_weight="25">
             <Button
+                android:id="@+id/keyPadButton4"
                 android:layout_width="0dp"
                 android:layout_height="fill_parent"
                 android:layout_weight=".33"
                 android:text="4"
-                android:onClick="KeyPadClick" />
+                 />
             <Button
+                android:id="@+id/keyPadButton5"
                 android:layout_width="0dp"
                 android:layout_height="fill_parent"
                 android:layout_weight=".33"
                 android:text="5"
-                android:onClick="KeyPadClick" />
+                 />
             <Button
+                android:id="@+id/keyPadButton6"
                 android:layout_width="0dp"
                 android:layout_height="fill_parent"
                 android:text="6"
-                android:onClick="KeyPadClick"
+                
                 android:layout_weight=".33"/>
         </LinearLayout>
         <LinearLayout
@@ -63,22 +68,25 @@
             android:layout_height="wrap_content"
             android:layout_weight="25">
             <Button
+                android:id="@+id/keyPadButton7"
                 android:layout_width="0dp"
                 android:layout_height="fill_parent"
                 android:layout_weight=".33"
                 android:text="7"
-                android:onClick="KeyPadClick" />
+                 />
             <Button
+                android:id="@+id/keyPadButton8"
                 android:layout_width="0dp"
                 android:layout_height="fill_parent"
                 android:layout_weight=".33"
                 android:text="8"
-                android:onClick="KeyPadClick" />
+                 />
             <Button
+                android:id="@+id/keyPadButton9"
                 android:layout_width="0dp"
                 android:layout_height="fill_parent"
                 android:text="9"
-                android:onClick="KeyPadClick"
+                
                 android:layout_weight=".33"/>
         </LinearLayout>
         <LinearLayout
@@ -86,22 +94,24 @@
             android:layout_height="wrap_content"
             android:layout_weight="25">
             <Button
+                android:id="@+id/keyPadButtonClear"
                 android:layout_width="0dp"
                 android:layout_height="fill_parent"
                 android:layout_weight=".33"
                 android:text="CLEAR"
-                android:onClick="KeyPadClick" />
+                 />
             <Button
+                android:id="@+id/keyPadButton0"
                 android:layout_width="0dp"
                 android:layout_height="fill_parent"
                 android:layout_weight=".33"
                 android:text="0"
-                android:onClick="KeyPadClick" />
+                 />
             <Button
+                android:id="@+id/keyPadButtonCheck"
                 android:layout_width="0dp"
                 android:layout_height="fill_parent"
                 android:text="Check"
-                android:onClick="KeyPadClick"
                 android:textSize="12dp"
                 android:layout_weight=".33"/>
         </LinearLayout>

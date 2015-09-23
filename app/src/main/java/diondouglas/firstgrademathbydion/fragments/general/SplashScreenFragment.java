@@ -52,6 +52,14 @@ public class SplashScreenFragment extends Fragment {
                 utilities.OpenRewardsScreen(v);
             }
         });
+        Button howManyButton = (Button)view.findViewById(R.id.ButtonHowMany);
+        howManyButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                utilities.openHowMany(v);
+            }
+        });
+
 
         return view;
     }

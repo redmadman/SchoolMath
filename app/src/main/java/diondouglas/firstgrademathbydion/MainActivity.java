@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
+import android.speech.tts.UtteranceProgressListener;
 import android.view.View;
 import android.widget.TextView;
 
@@ -45,6 +46,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
             openSplashScreen();
         }
         tts = new TextToSpeech(this, this);
+        tts.setSpeechRate(0.9f);
     }
 
     private boolean getFirstRun(){
@@ -91,6 +93,10 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
     }
     protected void onDestroy() {
         clearReferences();
+        if (tts!=null){
+            tts.stop();
+            tts.shutdown();
+        }
         super.onDestroy();
     }
     private void clearReferences(){
@@ -123,6 +129,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 
 
 
+
     public void selectGradeLevelListener(View v){
         SelectGradeLevel.clickButton(v);
     }
@@ -132,13 +139,17 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
             tts.speak(text, TextToSpeech.QUEUE_FLUSH, null, null);
         }else {
             tts.speak(text, TextToSpeech.QUEUE_FLUSH, null);
-
         }
+        boolean speakingEnd = tts.isSpeaking();
+        do{
+            speakingEnd = tts.isSpeaking();
+        }while (speakingEnd);
     }
 
     public void theProblem(View view){
         MathActivityFragment.theProblem(view);
     }
+
 }
 
 
