@@ -6,8 +6,12 @@ import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
 
 import diondouglas.firstgrademathbydion.R;
+import diondouglas.firstgrademathbydion.fragments.firstgrade.FirstGradeUtils.*;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -24,7 +28,26 @@ public class FirstGradeGameSelector extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_first_grade_game_selector, container, false);
+        View view = inflater.inflate(R.layout.fragment_first_grade_game_selector, container, false);
+        addButtonListeners(view);
+        return view;
+    }
+
+    private void addButtonListeners(View view){
+        ImageButton imageButton = (ImageButton)view.findViewById(R.id.EasyMathImageButton);
+        imageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirstGradeUtils.OpenEasyAdd(v);
+            }
+        });
+        imageButton = (ImageButton)view.findViewById(R.id.CountingThingsImageButton);
+        imageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirstGradeUtils.OpenHowMany(v);
+            }
+        });
     }
 
 

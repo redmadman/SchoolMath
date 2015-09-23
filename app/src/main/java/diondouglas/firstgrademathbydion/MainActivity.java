@@ -77,8 +77,6 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                         | View.SYSTEM_UI_FLAG_FULLSCREEN // hide status bar
                         | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
     }
-
-
     public void KeyPadClick(View v){
         MathActivityFragment.UpdateAnswer(v);
     }
@@ -104,7 +102,6 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
         if (currActivity != null && currActivity.equals(this))
             mySchoolMath.setMyCurrentActivity(null);
     }
-
     public void reCreator(){
         recreate();
     }
@@ -119,21 +116,15 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
             super.onBackPressed();
         }
     }
-
     public void goRewardsFrag(View view){
         utilities.OpenRewardsScreen(view);
     }
     public void goSplashScreen(View view){
         utilities.OpenSplashScreen(view);
     }
-
-
-
-
     public void selectGradeLevelListener(View v){
         SelectGradeLevel.clickButton(v);
     }
-
     public static void speak(String text) {
         if (Build.VERSION.RELEASE.startsWith("5")){
             tts.speak(text, TextToSpeech.QUEUE_FLUSH, null, null);
@@ -145,7 +136,6 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
             speakingEnd = tts.isSpeaking();
         }while (speakingEnd);
     }
-
     public void theProblem(View view){
         MathActivityFragment.theProblem(view);
     }

@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 
 import diondouglas.firstgrademathbydion.R;
+import diondouglas.firstgrademathbydion.fragments.firstgrade.FirstGradeUtils;
 import diondouglas.firstgrademathbydion.utils.utilities;
 
 
@@ -31,11 +32,11 @@ public class SplashScreenFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_splash_screen, container, false);
-        ImageButton okButton = (ImageButton)view.findViewById(R.id.SplashScreenOkButton);
+        ImageButton okButton = (ImageButton)view.findViewById(R.id.FirstGradeActivities);
         okButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                utilities.openMainActivity(v);
+                utilities.OpenFirstGradeGameSelector(v);
             }
         });
         Button settingsButton = (Button)view.findViewById(R.id.SplashScreenSettingsButton);
@@ -50,13 +51,6 @@ public class SplashScreenFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 utilities.OpenRewardsScreen(v);
-            }
-        });
-        Button howManyButton = (Button)view.findViewById(R.id.ButtonHowMany);
-        howManyButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                utilities.openHowMany(v);
             }
         });
 

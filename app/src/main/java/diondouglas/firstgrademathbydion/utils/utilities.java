@@ -11,7 +11,8 @@ import java.io.ObjectOutputStream;
 
 import diondouglas.firstgrademathbydion.R;
 import diondouglas.firstgrademathbydion.SchoolMath;
-import diondouglas.firstgrademathbydion.fragments.firstgrade.HowManyFragment;
+import diondouglas.firstgrademathbydion.fragments.firstgrade.FirstGradeGameSelector;
+import diondouglas.firstgrademathbydion.fragments.firstgrade.CountingThingsFragment;
 import diondouglas.firstgrademathbydion.fragments.firstgrade.MathActivityFragment;
 import diondouglas.firstgrademathbydion.fragments.general.SelectGradeLevel;
 import diondouglas.firstgrademathbydion.fragments.general.SplashScreenFragment;
@@ -52,7 +53,7 @@ public class utilities {
     public static void openHowMany(View view){
         Activity activity = (Activity)view.getContext();
         FragmentTransaction ft = activity.getFragmentManager().beginTransaction();
-        ft.addToBackStack(null).replace(R.id.mainFragment, new HowManyFragment()).commit();
+        ft.addToBackStack(null).replace(R.id.mainFragment, new CountingThingsFragment()).commit();
     }
     public static void openGradeLevelSelect(View view){
         Activity activity=(Activity)view.getContext();
@@ -84,5 +85,12 @@ public class utilities {
         }
     }
 
+    public static void OpenFirstGradeGameSelector(View view){
+        Activity activity = (Activity)view.getContext();
+        FragmentTransaction ft = activity.getFragmentManager().beginTransaction();
+        ft.replace(R.id.mainFragment, new FirstGradeGameSelector());
+        ft.addToBackStack(null);
+        ft.commit();
+    }
 
 }

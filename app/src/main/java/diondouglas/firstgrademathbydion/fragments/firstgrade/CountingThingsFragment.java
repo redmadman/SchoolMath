@@ -25,7 +25,7 @@ import diondouglas.firstgrademathbydion.utils.KeyPadFragment;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class HowManyFragment extends Fragment implements KeyPadFragment.KeyPadListener{
+public class CountingThingsFragment extends Fragment implements KeyPadFragment.KeyPadListener{
 
 
     private View myView;
@@ -34,7 +34,7 @@ public class HowManyFragment extends Fragment implements KeyPadFragment.KeyPadLi
     private boolean answerLocked = false;
     private String QUESTION_STRING= null;
     private String currentPicture;
-    public HowManyFragment() {
+    public CountingThingsFragment() {
         // Required empty public constructor
     }
 
